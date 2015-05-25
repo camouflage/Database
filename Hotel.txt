@@ -1,0 +1,33 @@
+酒店管理系統的資料結構(帶*意為實體集)
+
+*User(UserId,password,duty) :User表示該系統的使用人員，包括管理者和員工，管理者負責系統的維護，員工為主要使用者
+
+		User下有Administrator和Employee兩個subclase
+
+*Administrator(AId,password)
+*Employee(EId,password)
+-------------------------------
+*Room(RId,type,price) :存儲房間信息，每一個房間都有對應的信息，其中type用於區分不同的房型
+		Room下有眾多房型
+*BigBedRoom(RId,price) 大床房什麼的最喜歡了
+*DoubleBedRoom(RId,price) 双床房也不错
+*SingleBedRoom(Rid,price) 單身狗豪華房
+...
+
+-------------------------------
+*Guest(GId,name,age,...) :存儲客人信息，客人又分VIP和普通客人
+
+*General(GId,name,age,...)
+*VIP(GId,name,age,...) VIP客人可以享受優惠和折扣
+
+-------------------------------
+*Reg(RegId,EId,GId,startDay,endDay) :註冊信息，入住時的客人信息錄入
+
+-------------------------------
+*Account(AId,RegId,EId,GId,day,total payment) :结账信息，可根据客人的ID决定是不是VIP，决定是不是打折
+
+-------------------------------
+*Season(SId,RId,price) :拓展參考部分，淡季和旺季的價格的不同的調節，可加可不加
+
+*HotSeason(SId,RId,price)
+*SlackSeason(SId,RId,price)
