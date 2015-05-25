@@ -1,17 +1,1 @@
-Account(AccountID, Name):
-1. Customer
-2. Administrator
-
-CarClass:
-1. Tze-Chiang Limited Express
-	1.1 Taroko
-	1.2 Puyuma
-2. Chu-Kuang Express
-3. Fu-Hsing Semi Express
-4. Local Train
-
-Station(StationID, StationName)
-
-Train(TrainID)
-
-Ticket(TicketID)
+change to hotel administration system
