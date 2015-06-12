@@ -2,27 +2,31 @@
 
 *User(UserId,password,duty) :User表示該系統的使用人員，包括管理者和員工，管理者負責系統的維護，員工為主要使用者User下有Administrator和Employee兩個subclas
 
-*Administrator(AId,password)
-*Employee(EId,password)
+*Administrator(AdminId,password)
+*Employee(EmpId,password)
 -------------------------------
 *Room(RId,type,price) :存儲房間信息，每一個房間都有對應的信息，其中type用於區分不同的房型
 		Room下有眾多房型
-*BigBedroom(RId,Bid, price) 大床房什麼的最喜歡了
-*DoubleBedroom(RId,Did, price) 双床房也不错
-*SingleBedroom(Rid,Sid, price) 單身狗豪華房
+*BigRoom(RId,Bigid, price) 大床房什麼的最喜歡了
+*DoubleRoom(RId,DblId, price) 双床房也不错
+*SingleRoom(RId,SglId, price) 單身狗豪華房
+*FamilyRoom(RId, FmlId, price)
+*PresidentRoom(RId, PsdId, price)
 ...
 
 -------------------------------
-*Guest(GId,name,age,...) :存儲客人信息，客人又分VIP和普通客人
+*Guest(GId, SSN, Gname, gender, age, nationality, telNo, carParking) :存儲客人信息，客人又分VIP和普通客人
 
-*Ordinary(GId,Oid, name,age,...)
-*VIP(GId,Vid, name,age,...) VIP客人可以享受優惠和折扣
-
--------------------------------
-*Reservation(ResId,EId,GId,startDate,endDate) :註冊信息，入住時的客人信息錄入
+*Ordinary(GId, OrdId)
+*VIP(GId, VId, status, registerYear) VIP客人可以享受優惠和折扣, status VIP等級：白金……
 
 -------------------------------
-*Bill(BId,RegId,EId,GId,date,payment) :结账信息，可根据客人的ID决定是不是VIP，决定是不是打折
+*Reservation(ResId, EId, GId, registerDate, startDate, endDate) :註冊信息，入住時的客人信息錄入
+
+-------------------------------
+*Bill(BId, RegId, EId, GId, payDate, payMethod, total) :结账信息，可根据客人的ID决定是不是VIP，决定是不是打折
+
+*Payment(BId, Visa, Mastercard, UnionPay, cash, check)
 
 -------------------------------
 *Season(SId,RId,price) :拓展參考部分，淡季和旺季的價格的不同的調節，可加可不加
