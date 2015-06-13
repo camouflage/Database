@@ -10,12 +10,10 @@
 *BigRoom(RId,Bigid, price) 大床房什麼的最喜歡了
 *DoubleRoom(RId,DblId, price) 双床房也不错
 *SingleRoom(RId,SglId, price) 單身狗豪華房
-*FamilyRoom(RId, FmlId, price)
-*PresidentRoom(RId, PsdId, price)
 ...
 
 -------------------------------
-*Guest(GId, SSN, Gname, gender, age, nationality, telNo, carParking) :存儲客人信息，客人又分VIP和普通客人
+*Guest(GId, SSN, Gname, gender, age, telNo) :存儲客人信息，客人又分VIP和普通客人. Note: telNo for multi-valued.
 
 *Ordinary(GId, OrdId)
 *VIP(GId, VId, status, registerYear) VIP客人可以享受優惠和折扣, status VIP等級：白金……
