@@ -5,11 +5,12 @@
 *Administrator(AdminId,password)
 *Employee(EmpId,password)
 -------------------------------
-*Room(RId,type,price) :存儲房間信息，每一個房間都有對應的信息，其中type用於區分不同的房型
-		Room下有眾多房型
+*Room(RId,type,price, NoOfRoom) :存儲房間信息，每一個房間都有對應的信息，其中type用於區分不同的房型
+		Room下有眾多房型, NoOfRoom for derived attr.
 *BigRoom(RId,Bigid, price) 大床房什麼的最喜歡了
 *DoubleRoom(RId,DblId, price) 双床房也不错
 *SingleRoom(RId,SglId, price) 單身狗豪華房
+Note: (Here I treat it as overlapping, i.e. the room can be big single, singel etc.)
 ...
 
 -------------------------------
