@@ -15,9 +15,10 @@ Note: (Here I treat it as overlapping, i.e. the room can be big single, singel e
 
 -------------------------------
 *Guest(GId, SSN, Gname, gender, age, telNo) :存儲客人信息，客人又分VIP和普通客人. Note: telNo for multi-valued.
+Person and Company for union type
 
 *Ordinary(GId, OrdId)
-*VIP(GId, VId, status, registerYear) VIP客人可以享受優惠和折扣, status VIP等級：白金……
+*VIP(GId, VId, status) VIP客人可以享受優惠和折扣, status VIP等級：白金……
 
 -------------------------------
 *Reservation(ResId, EId, GId, registerDate, startDate, endDate) :註冊信息，入住時的客人信息錄入
@@ -26,6 +27,9 @@ Note: (Here I treat it as overlapping, i.e. the room can be big single, singel e
 *Bill(BId, RegId, EId, GId, payDate, payMethod, total) :结账信息，可根据客人的ID决定是不是VIP，决定是不是打折
 
 *Payment(BId, Visa, Mastercard, UnionPay, cash, check)
+
+
+
 
 -------------------------------
 *Season(SId,RId,price) :拓展參考部分，淡季和旺季的價格的不同的調節，可加可不加
