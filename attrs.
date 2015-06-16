@@ -24,7 +24,7 @@ Person and Company for union type
 *Reservation(ResId, EId, GId, registerDate, startDate, endDate) :註冊信息，入住時的客人信息錄入
 
 -------------------------------
-*Bill(BId, RegId, EId, GId, payDate, payMethod, total) :结账信息，可根据客人的ID决定是不是VIP，决定是不是打折
+*Bill(BId, ResId, EId, GId, payDate, payMethod, total) :结账信息，可根据客人的ID决定是不是VIP，决定是不是打折
 
 *Payment(BId, Visa, Mastercard, UnionPay, cash, check)
 
