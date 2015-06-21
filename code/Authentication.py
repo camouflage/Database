@@ -1,0 +1,74 @@
+#coding=utf-8
+import MySQLdb
+import getpass
+
+
+def Authentication():
+	print "=========================================="
+	print "=         欢迎使用 HELEN 酒店管理系统         " 
+	print "=                                         "
+	print "=            made by the authors            "
+	print "==========================================="
+
+	while 1:
+		print "=               请选择您的身份：              "
+		print "=               0. exit					   "
+		print "=               1. Administrator              "
+		print "=               2. Employee                "
+		op = input()
+		if op == 0:
+			return
+		if op == 1:
+			Authentication_Ad()
+			return
+		if op == 2:
+			Authentication_Em()
+			return
+		else:
+			print "Wrong command!"
+
+def Authentication_Ad():
+	"""
+		Authentication for Administrator
+	"""
+	UserId = raw_input("Enter your UserId: ")
+	print "Enter your password: "
+	password = getpass.getpass()
+
+"""
+	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+	cursor = db.cursor()
+	sql = "select UserId from Administrator where UserId = " + UserId + " and password = "+ password
+	print sql
+	cursor.execute(sql)
+	data = cursor.fetchone()
+	if ( data != null ):
+		print "登陆成功！"
+	else:
+		print "密码或用户名不正确，登录失败"
+	db.close()
+"""
+
+def Authentication_Em():
+	"""
+		Authentication for Employee
+	"""
+	UserId = raw_input("Enter your UserId:")
+	print "Enter your password:"
+	password = getpass.getpass()
+
+"""
+	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+	cursor = db.cursor()
+	sql = "select UserId from Employee where UserId = " + UserId + " and password = "+ password
+	print sql
+	cursor.execute(sql)
+	data = cursor.fetchone()
+	if ( data != null ):
+		print "登陆成功！"
+	else:
+		print "密码或用户名不正确，登录失败"
+	db.close()
+"""
+
+Authentication()
