@@ -2,15 +2,12 @@
 import MySQLdb
 import getpass
 
-
 def Authentication():
-	print "=========================================="
-	print "=         欢迎使用 HELEN 酒店管理系统         " 
-	print "=                                         "
-	print "=            made by the authors            "
-	print "==========================================="
-
+	"""
+		Return: 0 for exit, 1 for Admin and 2 for Emp
+	"""
 	while 1:
+		print "=                                         "
 		print "=               请选择您的身份：              "
 		print "=               0. exit					   "
 		print "=               1. Administrator              "
@@ -23,7 +20,7 @@ def Authentication():
 				return 1
 		elif op == 2:
 			if Authentication_Em() == 1:
-				return 1
+				return 2
 		else:
 			print "Wrong command!"
 
@@ -35,7 +32,7 @@ def Authentication_Ad():
 	UserId = raw_input("Enter your UserId: ")
 	print "Enter your password: "
 	password = getpass.getpass()
-
+	return 1
 """
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()
@@ -60,7 +57,7 @@ def Authentication_Em():
 	UserId = raw_input("Enter your UserId:")
 	print "Enter your password:"
 	password = getpass.getpass()
-
+	return 0
 """
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()
@@ -75,5 +72,3 @@ def Authentication_Em():
 		return 0
 	db.close()
 """
-
-Authentication()

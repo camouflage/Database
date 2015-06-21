@@ -1,7 +1,8 @@
 #coding=utf-8
 import MySQLdb
+from SharedVar import *
 
-def SelectOp():
+def AdminOp():
 	"""
 		Show Administrators' operations.
 	"""
@@ -35,11 +36,10 @@ def Employee():
 		print "    3. delete employee"
 		op = input()
 
-		global UserId
 		if op == 0:
 			return
 		elif op == 1:
-			UserId += 1
+			SharedVar.UserId += 1
 			return 
 		elif op == 2:
 			Uid = raw_input("Please enter the userId: ")
@@ -65,20 +65,19 @@ def Room():
 		print "    5. delete room"
 		op = input()
 
-		global RoomId
 		if op == 0:
 			return
 
 		elif op == 1:
-			RoomId += 1
+			SharedVar.RoomId += 1
 			return 
 
 		elif op == 2:
-			RoomId += 1
+			SharedVar.RoomId += 1
 			return
 
 		elif op == 3:
-			RoomId += 1
+			SharedVar.RoomId += 1
 			return
 
 		elif op == 4:
@@ -104,22 +103,18 @@ def Facility():
 		print "    2. add chessroom"
 		op = input()
 
-		global FacilityId
 		if op == 0:
 			return
 
 		elif op == 1:
-			FacilityId += 1
+			type = raw_input("Please enter the type: ")
+			SharedVar.FacilityId += 1
 			return 
 
 		elif op == 2:
-			FacilityId += 1
+			size = raw_input("Please enter the size: ")
+			SharedVar.FacilityId += 1
 			return
 
 		else:
 			print "Wrong command!"
-
-UserId = 0
-RoomId = 0
-FacilityId = 0
-SelectOp()
