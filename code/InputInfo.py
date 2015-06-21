@@ -1,17 +1,18 @@
 #coding=utf-8
 import MySQLdb
 
-def InputInfo(GId):
+def InputInfo():
 	"""
-		Get the info of Guest and store it.
+		For Employee, get the info of Guest and store it.
 		Return: 1 for completing input and 0 for not completing.
 	"""
 	while 1:
-		guestType = input("Please enter the guestType:\
+		guestType = input("\nPlease enter the guestType:\
 			\n0. return\n1. Person\n2. Company\n")
 
+		global GId
 		if guestType == 0:
-			return 0, GId
+			return
 
 		elif guestType == 1:
 			Ssn = raw_input("Please enter Ssn: ")
@@ -26,20 +27,20 @@ def InputInfo(GId):
 				status = raw_input("Please enter VIP Status: ")
 
 
-			GId = GId + 1
-			return 1, GId
+			GId += 1
+			return
 
 		elif guestType == 2:
 			cName = raw_input("Please enter company name: ")
 			cAddress = raw_input("Please enter company address: ")
 
 
-			GId = GId + 1
-			return 1, GId
+			GId += 1
+			return
 
 		else:
 			print "Wrong command!"
 
 GId = 0
-Flag, GId = InputInfo(GId)
+InputInfo()
 print GId
