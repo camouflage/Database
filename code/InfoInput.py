@@ -59,6 +59,3 @@ def InfoInput():
 
 		else:
 			print "Wrong command!"
-
-GId = 0
-InfoInput()

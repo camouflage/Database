@@ -1,6 +1,6 @@
 #coding=utf-8
 import MySQLdb
-from SharedVar import *
+import SharedVar
 
 def AdminOp():
 	"""
@@ -11,7 +11,7 @@ def AdminOp():
 		print "    0. logout"
 		print "    1. Employee"
 		print "    2. Room"
-		print "    3. Facility"
+		# print "    3. Facility"
 		op = input()
 		if op == 0:
 			return 0
@@ -19,8 +19,8 @@ def AdminOp():
 			Employee()
 		elif op == 2:
 			Room()
-		elif op == 3:
-			Facility()
+		# elif op == 3:
+		# 	Facility()
 		else:
 			print "Wrong command!"
 
@@ -91,11 +91,8 @@ def Room():
 		else:
 			print "Wrong command!"
 
-
+"""
 def Facility():
-	"""
-		Facility related operations.
-	"""
 	while 1:
 		print "\nPlease enter the operation: "
 		print "    0. return"
@@ -118,3 +115,4 @@ def Facility():
 
 		else:
 			print "Wrong command!"
+"""

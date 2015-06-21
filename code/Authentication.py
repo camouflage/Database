@@ -32,7 +32,7 @@ def Authentication_Ad():
 	UserId = raw_input("Enter your UserId: ")
 	print "Enter your password: "
 	password = getpass.getpass()
-	return 1
+	return 1 # For test, please rm
 """
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()
@@ -57,7 +57,7 @@ def Authentication_Em():
 	UserId = raw_input("Enter your UserId:")
 	print "Enter your password:"
 	password = getpass.getpass()
-	return 0
+	return 1 # For test, please rm
 """
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()

@@ -1,8 +1,9 @@
 #coding=utf-8
 import MySQLdb
-from SharedVar import *
+import SharedVar
 from Authentication import *
 from AdminOperation import *
+from EmpOperation import *
 
 def main():
 	"""
@@ -16,9 +17,7 @@ def main():
 
 	authentication = Authentication()
 
-	SharedVar.UserId = 0
-	SharedVar.RoomId = 0
-	SharedVar.FacilityId = 0
+	SharedVar.init()
 
 	if authentication == 0:
 		return 0
@@ -27,7 +26,7 @@ def main():
 	elif authentication == 2:
 		EmpOp()
 
-	print SharedVar.UserId, SharedVar.RoomId, SharedVar.FacilityId
+	# print SharedVar.UserId, SharedVar.RoomId
 	
 if __name__ == "__main__":
 	main()
