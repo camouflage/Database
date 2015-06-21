@@ -1,0 +1,8 @@
+#coding=utf-8
+import MySQLdb
+
+def InputInfo:
+	"""
+		Get the info of Guest and store it.
+	"""
+	

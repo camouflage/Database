@@ -17,13 +17,13 @@ def Authentication():
 		print "=               2. Employee                "
 		op = input()
 		if op == 0:
-			return
+			return 0
 		if op == 1:
-			Authentication_Ad()
-			return
+			if Authentication_Ad() == 1:
+				return 1
 		if op == 2:
-			Authentication_Em()
-			return
+			if Authentication_Em() == 1:
+				return 1
 		else:
 			print "Wrong command!"
 
@@ -43,7 +43,8 @@ def Authentication_Ad():
 	cursor.execute(sql)
 	data = cursor.fetchone()
 	if ( data != null ):
-		print "登陆成功！"
+		print "登陆成功!"
+		return 1
 	else:
 		print "密码或用户名不正确，登录失败"
 	db.close()
