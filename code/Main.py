@@ -20,13 +20,13 @@ def main():
 	SharedVar.init()
 
 	if authentication == 0:
-		return 0
+		pass
 	elif authentication == 1:
 		AdminOp()
 	elif authentication == 2:
 		EmpOp()
 
-	# print SharedVar.UserId, SharedVar.RoomId
+	SharedVar.commit()
 	
 if __name__ == "__main__":
 	main()
