@@ -87,7 +87,7 @@ def InfoInput():
 				except:
 					db.rollback()
 		
-			db.close()
+			db.close() 
 			return
 
 		elif guestType == 2:
