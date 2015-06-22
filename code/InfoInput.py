@@ -22,11 +22,47 @@ def InfoInput():
 			firstName = raw_input("Please enter firstName: ")
 			lastName = raw_input("Please enter lastName: ")
 
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "INSERT INTO Person VALUES ('%s','%s','%s','%s','%s','%s')" % (SSN,age,gender,firstName,lastName,SharedVar.GId)
+			print sql
+			try:
+				cursor.execute(sql)
+				db.commit()
+				print "Add Person complete!"
+			except:
+				db.rollback()
+			db.close()
 			# VIP
-			VIP = raw_input("Is VIP(0. N0  1. Yes)? ")
+			VIP = input("Is VIP(0. N0  1. Yes)? ")
 			if VIP == 1:
 				Vid = raw_input("Please enter Vid: ")
 				status = raw_input("Please enter VIP Status: ")
+
+				db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+				cursor = db.cursor()
+				sql = "INSERT INTO Guest VALUES ('%s','VIP','%s')" % (SharedVar.GId,Vid)
+				print sql
+				try:
+					cursor.execute(sql)
+					db.commit()
+					print "Add VIP complete!"
+				except:
+					db.rollback()
+				db.close()
+			else:
+				db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+				cursor = db.cursor()
+				sql = "INSERT INTO Guest VALUES ('%s','Ordinary')" % (SharedVar.GId)
+				print sql
+				try:
+					cursor.execute(sql)
+					db.commit()
+					print "Add Guest complete!"
+				except:
+					db.rollback()
+				db.close()
+
 
 			# Contacts
 			tel = []
@@ -38,6 +74,20 @@ def InfoInput():
 					break
 
 			SharedVar.GId += 1
+
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			for a in tel:
+				sql = "INSERT INTO Contact VALUES ('%s','%s')" % (SharedVar.GId,a)
+				print sql
+				try:
+					cursor.execute(sql)
+					db.commit()
+					print "Add Contact complete!"
+				except:
+					db.rollback()
+		
+			db.close()
 			return
 
 		elif guestType == 2:
@@ -66,6 +116,17 @@ def InfoInput():
 				print "Add Company complete!"
 			except:
 				db.rollback()
+
+			for a in tel:
+				sql = "INSERT INTO Contact VALUES ('%s','%s')" % (SharedVar.GId,a)
+				print sql
+				try:
+					cursor.execute(sql)
+					db.commit()
+					print "Add Contact complete!"
+				except:
+					db.rollback()
+
 			
 			db.close()
 
