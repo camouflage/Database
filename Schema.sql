@@ -90,9 +90,16 @@ startDate DATE,
 endDate DATE
 );
 
+CREATE TABLE Global (
+	UserId INTEGER,
+    RoomId INTEGER,
+    GId INTEGER,
+    ResId INTEGER
+);
+
+
 ALTER TABLE Person
 ADD PRIMARY KEY(SSN);
-
 
 ALTER TABLE Company
 ADD PRIMARY KEY(cName);
@@ -181,11 +188,33 @@ ALTER TABLE Bill
 ADD FOREIGN KEY(ResId) REFERENCES Reserve(ResId) 
 ON DELETE CASCADE ON UPDATE CASCADE;
 
-CREATE TABLE Global (
-	UserId INTEGER,
-    RoomId INTEGER,
-    GId INTEGER,
-    ResId INTEGER
-);
 
 INSERT INTO Global values(0, 0, 0, 0);
+
+INSERT INTO Administrator
+VALUES 
+('00000', '1');
+
+INSERT INTO Room
+VALUES
+('00000', 1, 200, 1, 0, 0),
+('00001', 1, 200, 1, 0, 0),
+('00002', 1, 200, 1, 0, 0),
+('00003', 1, 200, 1, 0, 0),
+('00004', 1, 200, 1, 0, 0);
+
+INSERT INTO Room
+VALUES
+('00005', 1, 300, 0, 1, 0),
+('00006', 1, 300, 0, 1, 0),
+('00007', 1, 300, 0, 1, 0),
+('00008', 1, 300, 0, 1, 0),
+('00009', 1, 300, 0, 1, 0);
+
+INSERT INTO Room
+VALUES
+('00010', 1, 100, 0, 0, 1),
+('00011', 1, 100, 0, 0, 1),
+('00012', 1, 100, 0, 0, 1),
+('00013', 1, 100, 0, 0, 1),
+('00014', 1, 100, 0, 0, 1);
