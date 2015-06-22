@@ -5,4 +5,4 @@ CREATE TABLE Global (
     ResId INTEGER
 );
 
-#INSERT INTO Global values(0, 0, 0, 0);
+INSERT INTO Global values(0, 0, 0, 0);
