@@ -32,22 +32,23 @@ def Authentication_Ad():
 	UserId = raw_input("Enter your UserId: ")
 	print "Enter your password: "
 	password = getpass.getpass()
-	return 1 # For test, please rm
-"""
+#	return 1 # For test, please rm
+
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()
-	sql = "select UserId from Administrator where UserId = " + UserId + " and password = "+ password
-	#print sql
+	sql = "select UserId from Administrator where UserId = '%s' and password = '%s'" %(UserId,password)
+	print sql
 	cursor.execute(sql)
 	data = cursor.fetchone()
-	if ( data != null ):
+	#print data
+	if ( data != None ):
 		print "登陆成功!"
 		return 1
 	else:
 		print "密码或用户名不正确，登录失败"
 		return 0
 	db.close()
-"""
+
 
 def Authentication_Em():
 	"""
@@ -57,18 +58,19 @@ def Authentication_Em():
 	UserId = raw_input("Enter your UserId:")
 	print "Enter your password:"
 	password = getpass.getpass()
-	return 1 # For test, please rm
-"""
+#	return 1 # For test, please rm
+
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()
-	sql = "select UserId from Employee where UserId = " + UserId + " and password = "+ password
+	sql = "select UserId from Employee where UserId = '%s' and password = '%s'" %(UserId,password)
 	#print sql
 	cursor.execute(sql)
 	data = cursor.fetchone()
-	if ( data != null ):
+	if ( data != None ):
 		print "登陆成功！"
+		return 1
 	else:
 		print "密码或用户名不正确，登录失败"
 		return 0
 	db.close()
-"""
+
