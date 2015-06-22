@@ -73,7 +73,7 @@ password VARCHAR(20)
 
 CREATE TABLE Bill
 (ResId CHAR(5) NOT NULL,
-EId CHAR(5),
+EmpId CHAR(5),
 GId CHAR(5),
 total INTEGER,
 isPayed BOOLEAN
