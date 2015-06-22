@@ -49,9 +49,6 @@ def CheckOut():
 
 		db.close()
 		Del(ResId)
-
-
-
 	else:
 		print "Error Command!"
 #except:
