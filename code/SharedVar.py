@@ -9,6 +9,7 @@ def init():
     global RoomId
     global GId
     global ResId
+<<<<<<< HEAD
 
     # connect to db.
     db = MySQLdb.connect("127.0.0.1", "root", "", "test")
@@ -22,5 +23,13 @@ def init():
     RoomId = data[1]
     GId = data[2]
     ResId = data[3]
+=======
+    global Uid
+    UserId = 0
+    RoomId = 0
+    GId = 0
+    ResId = 0
+    Uid = 0
+>>>>>>> origin/master
 
 
