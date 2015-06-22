@@ -32,6 +32,3 @@ def EmpOp():
 		else:
 			print "Wrong command!"
 
-
-
-

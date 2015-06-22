@@ -47,7 +47,7 @@ def Employee():
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
 			sql = "INSERT INTO Employee VALUES ('%s','%s')" % (SharedVar.UserId,password)
-			print sql
+			# print sql
 			try:
 				cursor.execute(sql)
 				db.commit()
@@ -68,7 +68,7 @@ def Employee():
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
 			sql = "UPDATE Employee SET password = '%s' where UserId = '%s'" % (password,Uid)
-			print sql
+			# print sql
 
 			try:
 				cursor.execute(sql)
@@ -87,7 +87,7 @@ def Employee():
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
 			sql = "SELECT * FROM Employee where UserId = '%s'" % (Uid)
-			print sql
+			# print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
 			if data == None:
@@ -97,7 +97,7 @@ def Employee():
 			else:
 				#Delete
 				sql = "DELETE FROM Employee where UserId = '%s'" % (Uid)
-				print sql
+				# print sql
 				try:
 					cursor.execute(sql)
 					db.commit()
@@ -138,7 +138,7 @@ def Room():
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
 			sql = "INSERT INTO Room VALUES ('%s', 1, '%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
-			print sql
+			# print sql
 			try:
 				cursor.execute(sql)
 				db.commit()
@@ -161,7 +161,7 @@ def Room():
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
 			sql = "INSERT INTO Room VALUES ('%s', 1, '%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
-			print sql
+			# print sql
 			try:
 				cursor.execute(sql)
 				db.commit()
@@ -184,7 +184,7 @@ def Room():
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
 			sql = "INSERT INTO Room VALUES ('%s', 1, '%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
-			print sql
+			# print sql
 			try:
 				cursor.execute(sql)
 				db.commit()
@@ -205,7 +205,7 @@ def Room():
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
 			sql = "SELECT * FROM Room where RoomId = '%s'" % (Rid)
-			print sql
+			# print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
 			if data == None:
@@ -216,7 +216,7 @@ def Room():
 				#update
 				price = input("Please enter the new price: ")
 				sql = "UPDATE Room SET price = '%d' WHERE RoomId = '%s'" % (price,Rid)
-				print sql
+				# print sql
 				try:
 					cursor.execute(sql)
 					db.commit()
@@ -234,7 +234,7 @@ def Room():
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
 			sql = "SELECT * FROM Room where RoomId = '%s'" % (Rid)
-			print sql
+			# print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
 			if data == None:
@@ -244,7 +244,7 @@ def Room():
 			else:
 				#delete
 				sql = "DELETE FROM Room where RoomId = '%s'" % (Rid)
-				print sql
+				# print sql
 				try:
 					cursor.execute(sql)
 					db.commit()

@@ -15,6 +15,7 @@ def InfoInput():
 			return
 
 		elif guestType == 1:
+			add = 1
 			# Basic info
 			SSN = raw_input("Please enter Ssn: ")
 			age = raw_input("Please enter age: ")
@@ -22,17 +23,6 @@ def InfoInput():
 			firstName = raw_input("Please enter firstName: ")
 			lastName = raw_input("Please enter lastName: ")
 
-			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
-			cursor = db.cursor()
-			sql = "INSERT INTO Person VALUES ('%s','%s','%s','%s','%s','%s')" % (SSN,age,gender,firstName,lastName,SharedVar.GId)
-			print sql
-			try:
-				cursor.execute(sql)
-				db.commit()
-				print "Add Person complete!"
-			except:
-				db.rollback()
-			db.close()
 			# VIP
 			VIP = input("Is VIP(0. N0  1. Yes)? ")
 			if VIP == 1:
@@ -48,21 +38,40 @@ def InfoInput():
 					db.commit()
 					print "Add VIP complete!"
 				except:
+					add = 0
+					print "Error!"
 					db.rollback()
 				db.close()
 			else:
 				db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 				cursor = db.cursor()
-				sql = "INSERT INTO Guest VALUES ('%s','Ordinary')" % (SharedVar.GId)
+				sql = "INSERT INTO Guest VALUES ('%s','Ordinary', NULL)" % (SharedVar.GId)
 				print sql
 				try:
 					cursor.execute(sql)
 					db.commit()
 					print "Add Guest complete!"
 				except:
+					add = 0
+					print "Error!"
 					db.rollback()
 				db.close()
 
+
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "INSERT INTO Person VALUES ('%s','%s','%s','%s','%s','%s')" % (SSN,age,gender,firstName,lastName,SharedVar.GId)
+			print sql
+			try:
+				cursor.execute(sql)
+				db.commit()
+				print "Add Person complete!"
+			except:
+				add = 0
+				print "Error!"
+				db.rollback()
+
+			db.close()
 
 			# Contacts
 			tel = []
@@ -72,8 +81,6 @@ def InfoInput():
 				more = input("More contact infomation(0. N0  1. Yes)? ")
 				if more != 1:
 					break
-
-			SharedVar.GId += 1
 
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
@@ -85,14 +92,18 @@ def InfoInput():
 					db.commit()
 					print "Add Contact complete!"
 				except:
+					add = 0
+					print "Error!"
 					db.rollback()
 		
 			db.close()
-
+			if add == 1:
+				SharedVar.GId += 1
 			SharedVar.commit()
 			return
 
 		elif guestType == 2:
+			add = 1
 			# Basic info
 			cName = raw_input("Please enter company name: ")
 			cAddress = raw_input("Please enter company address: ")
@@ -106,7 +117,22 @@ def InfoInput():
 				if more != 1:
 					break
 
-			SharedVar.GId += 1
+			Vid = raw_input("Please enter Vid: ")
+			status = raw_input("Please enter VIP Status: ")
+
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "INSERT INTO Guest VALUES ('%s','VIP','%s')" % (SharedVar.GId,Vid)
+			print sql
+			try:
+				cursor.execute(sql)
+				db.commit()
+				print "Add VIP complete!"
+			except:
+				add = 0
+				print "Error!"
+				db.rollback()
+			db.close()
 
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
@@ -117,6 +143,8 @@ def InfoInput():
 				db.commit()
 				print "Add Company complete!"
 			except:
+				add = 0
+				print "Error!"
 				db.rollback()
 
 			for a in tel:
@@ -127,9 +155,13 @@ def InfoInput():
 					db.commit()
 					print "Add Contact complete!"
 				except:
+					add = 0
+					print "Error!"
 					db.rollback()
 
 			db.close()
+			if add == 1:	
+				SharedVar.GId += 1
 
 			SharedVar.commit()
 			return
