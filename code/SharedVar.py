@@ -6,7 +6,7 @@ def init():
         init global variable
     """
     global UserId
-    global RoomId
+    global RoomId 
     global GId
     global ResId
 
@@ -21,3 +21,5 @@ def init():
     RoomId = data[1]
     GId = data[2]
     ResId = data[3]
+
+    db.close();

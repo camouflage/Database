@@ -26,7 +26,8 @@ def main():
 	elif authentication == 2:
 		EmpOp()
 
-	# print SharedVar.UserId, SharedVar.RoomId
+	#print "fuck"	
+#print SharedVar.UserId, SharedVar.RoomId
 	
 if __name__ == "__main__":
 	main()
