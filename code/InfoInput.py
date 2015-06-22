@@ -1,5 +1,6 @@
 #coding=utf-8
 import MySQLdb
+import SharedVar
 
 def InfoInput():
 	"""
@@ -10,7 +11,6 @@ def InfoInput():
 		guestType = input("\nPlease enter the guestType:\
 			\n0. return\n1. Person\n2. Company\n")
 
-		global GId
 		if guestType == 0:
 			return
 
@@ -37,7 +37,7 @@ def InfoInput():
 				if more != 1:
 					break
 
-			GId += 1
+			SharedVar.GId += 1
 			return
 
 		elif guestType == 2:
@@ -54,7 +54,7 @@ def InfoInput():
 				if more != 1:
 					break
 
-			GId += 1
+			SharedVar.GId += 1
 			return
 
 		else:

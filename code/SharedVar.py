@@ -1,7 +1,8 @@
 def init():
-	global UserId
-	global RoomId
-	# global FacilityId
-	UserId = 0
-	RoomId = 0
-	FacilityId = 0
+    global UserId
+    global RoomId
+    global GId
+    UserId = 0
+    RoomId = 0
+    GId = 0
+
