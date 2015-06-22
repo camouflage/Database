@@ -26,7 +26,12 @@ def main():
 	elif authentication == 2:
 		EmpOp()
 
+<<<<<<< HEAD
 	SharedVar.commit()
+=======
+	#print "fuck"	
+#print SharedVar.UserId, SharedVar.RoomId
+>>>>>>> origin/master
 	
 if __name__ == "__main__":
 	main()

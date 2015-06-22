@@ -6,7 +6,7 @@ def init():
         init global variable
     """
     global UserId
-    global RoomId
+    global RoomId 
     global GId
     global ResId
 
@@ -23,6 +23,7 @@ def init():
     GId = data[2]
     ResId = data[3]
 
+<<<<<<< HEAD
 def commit():
     """
         commit global variable
@@ -43,3 +44,6 @@ def commit():
         db.rollback()
 
     db.close()
+=======
+    db.close();
+>>>>>>> origin/master

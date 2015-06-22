@@ -55,6 +55,21 @@ def InfoInput():
 					break
 
 			SharedVar.GId += 1
+
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "INSERT INTO Company VALUES ('%s','%s','%s')" % (cName,cAddress,SharedVar.GId)
+			print sql
+			try:
+				cursor.execute(sql)
+				db.commit()
+				print "Add Company complete!"
+			except:
+				db.rollback()
+			
+			db.close()
+
+
 			return
 
 		else:
