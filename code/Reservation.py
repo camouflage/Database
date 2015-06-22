@@ -15,19 +15,25 @@ def Reserve():
 		SharedVar.ResId += 1
 		startDate_string = raw_input("Please input startDate: ")
 		endDate_string = raw_input("Please input endDate: ")
-		break
+		
 
-	#Deal with date strings
-	startDate = datetime.datetime.strptime(startDate_string, "%Y-%m-%d")
-	endDate = datetime.datetime.strptime(endDate_string, "%Y-%m-%d")
+		#Deal with date strings
+		startDate = datetime.datetime.strptime(startDate_string, "%Y-%m-%d")
+		endDate = datetime.datetime.strptime(endDate_string, "%Y-%m-%d")
 
-	#SQL operation
-	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
-	cursor = db.cursor()
-	sql = "INSERT INTO Reserve VALUES ('%s','%s','%s','%s','%s','%s')" % (EmpId,GId,RoomId,SharedVar.ResId,startDate,endDate)
-	print sql
-	cursor.execute(sql)
-	db.commit()
+		#SQL operation
+		db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+		cursor = db.cursor()
+		sql = "INSERT INTO Reserve VALUES ('%s','%s','%s','%s','%s','%s')" % (EmpId,GId,RoomId,SharedVar.ResId,startDate,endDate)
+		print sql
+		try:
+			cursor.execute(sql)
+			db.commit()
+			print "Insert Reserve sucessfully!"
+			break
+		except:
+			db.rollback();
+			print "Insert fail!"
 
 	db.close()
 
