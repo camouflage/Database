@@ -37,5 +37,4 @@ def Reserve():
 
 	db.close()
 
-		
-		
+	SharedVar.commit()

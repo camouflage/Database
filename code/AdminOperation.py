@@ -41,7 +41,6 @@ def Employee():
 			return
 		elif op == 1:
 			#UserId = raw_input("Please input userId:")
-			SharedVar.UserId += 1
 			print "Please set password: "
 			password = getpass.getpass()
 
@@ -52,10 +51,14 @@ def Employee():
 			try:
 				cursor.execute(sql)
 				db.commit()
+				print "Add User %d successfully!" % (SharedVar.UserId)
+				SharedVar.UserId += 1
 			except:
 				db.rollback()
 			
-			db.close()		
+			db.close()
+
+			SharedVar.commit()
 			return 
 		elif op == 2:
 			Uid = raw_input("Please enter the userId: ")
@@ -129,17 +132,17 @@ def Room():
 
 		elif op == 1:
 			price = input("Please input the price: ")
-			SharedVar.RoomId += 1
 			BigFlag = 1
 			DoubleFlag = 0
 			SingleFlag = 0
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "INSERT INTO Room VALUES ('%s','%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
+			sql = "INSERT INTO Room VALUES ('%s', 1, '%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
 			print sql
 			try:
 				cursor.execute(sql)
 				db.commit()
+				SharedVar.RoomId += 1
 				print "Add bigroom successfully!"
 			except:
 				db.rollback()
@@ -147,47 +150,53 @@ def Room():
 			
 			db.close()	
 
+			SharedVar.commit()
 			return
+
 		elif op == 2:
 			price = input("Please input the price: ")
-			SharedVar.RoomId += 1
 			BigFlag = 0
 			DoubleFlag = 0
 			SingleFlag = 1
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "INSERT INTO Room VALUES ('%s','%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
+			sql = "INSERT INTO Room VALUES ('%s', 1, '%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
 			print sql
 			try:
 				cursor.execute(sql)
 				db.commit()
+				SharedVar.RoomId += 1
 				print "Add singleroom successfully!"
 			except:
 				db.rollback()
 				print "Add Fail!"
 			
 			db.close()
+
+			SharedVar.commit()
 			return
 
 		elif op == 3:
 			price = input("Please input the price: ")
-			SharedVar.RoomId += 1
 			BigFlag = 0
 			DoubleFlag = 1
 			SingleFlag = 0
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "INSERT INTO Room VALUES ('%s','%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
+			sql = "INSERT INTO Room VALUES ('%s', 1, '%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
 			print sql
 			try:
 				cursor.execute(sql)
 				db.commit()
+				SharedVar.RoomId += 1
 				print "Add doubleroom successfully!"
 			except:
 				db.rollback()
 				print "Add Fail!"
 			
 			db.close()
+			
+			SharedVar.commit()
 			return
 
 		elif op == 4:
