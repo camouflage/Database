@@ -137,7 +137,7 @@ def Room():
 			SingleFlag = 0
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "INSERT INTO Room VALUES ('%s','%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
+			sql = "INSERT INTO Room VALUES ('%s', 1, '%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
 			print sql
 			try:
 				cursor.execute(sql)
@@ -160,7 +160,7 @@ def Room():
 			SingleFlag = 1
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "INSERT INTO Room VALUES ('%s','%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
+			sql = "INSERT INTO Room VALUES ('%s', 1, '%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
 			print sql
 			try:
 				cursor.execute(sql)
@@ -183,7 +183,7 @@ def Room():
 			SingleFlag = 0
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "INSERT INTO Room VALUES ('%s','%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
+			sql = "INSERT INTO Room VALUES ('%s', 1, '%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
 			print sql
 			try:
 				cursor.execute(sql)
