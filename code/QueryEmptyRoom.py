@@ -28,9 +28,12 @@ def QueryEmptyRoom():
 			print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
-			roomId = data[0]
-			#print data
-			print "Available room: " + roomId
+			if data[0] != None:
+				roomId = data[0]
+				#print data
+				print "Available room: " + roomId
+			else:
+				print "No available room!"
 			db.close()
 
 
@@ -41,9 +44,12 @@ def QueryEmptyRoom():
 			print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
-			roomId = data[0]
-			#print data
-			print "Available room: " + roomId
+			if data[0] != None:
+				roomId = data[0]
+				#print data
+				print "Available room: " + roomId
+			else:
+				print "No available room!"
 			db.close()
 
 		elif roomType == 3: #DoubleRoom type
@@ -53,9 +59,10 @@ def QueryEmptyRoom():
 			print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
-			roomId = data[0]
-			#print data
-			print "Available room: " + roomId
+			if data[0] != None:
+				roomId = data[0]
+				#print data
+				print "Available room: " + roomId
 			db.close()
 		else:
 			print "Wrong command "

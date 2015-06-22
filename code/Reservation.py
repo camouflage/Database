@@ -35,6 +35,15 @@ def Reserve():
 			db.rollback();
 			print "Insert fail!"
 
+		sql = "UPDATE Reserve SET available = 0 WHERE RoomId = '%s'" % (RoomId)
+		try:
+			cursor.execute(sql)
+			db.commit()
+			break
+		except:
+			db.rollback();
+			print "Fail!"		
+
 	db.close()
 
 	SharedVar.commit()

@@ -34,6 +34,7 @@ def CheckOut():
 	if op == 0:
 		return
 	elif op == 1:
+
 		#Bill
 		db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 		cursor = db.cursor()
@@ -46,6 +47,10 @@ def CheckOut():
 		total = price*(endDate-startDate).days
 		print "Bill: "
 		print total
+
+		sql = "UPDATE Reserve SET available = 0 WHERE RoomId = '%s'" % (RoomId)
+		cursor.execute(sql)
+		db.commit()
 
 		db.close()
 		Del(ResId)
