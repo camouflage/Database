@@ -1,3 +1,8 @@
+#coding=utf-8
+import MySQLdb
+import SharedVar
+import datetime
+
 def QueryEmptyRoom():
 	"""
 	Do query for empty room,
@@ -19,7 +24,7 @@ def QueryEmptyRoom():
 	   	elif roomType == 1: #BigRoom type
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "SELECT RoomId FROM Room WHERE BigFlag = 1 AND available = 0"
+			sql = "SELECT RoomId FROM Room WHERE BigFlag = 1 AND available = 1"
 			print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
@@ -32,20 +37,19 @@ def QueryEmptyRoom():
 		elif roomType == 2: #DoubleRoom type
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "SELECT RoomId FROM Room WHERE DoubleFlag = 1 AND available = 0"
+			sql = "SELECT RoomId FROM Room WHERE DoubleFlag = 1 AND available = 1"
 			print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
 			roomId = data[0]
 			#print data
 			print "Available room: " + roomId
-			print "Available room: '%s'" % (data)
 			db.close()
 
 		elif roomType == 3: #DoubleRoom type
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "SELECT RoomId FROM Room WHERE SingleFlag = 1 AND available = 0"
+			sql = "SELECT RoomId FROM Room WHERE SingleFlag = 1 AND available = 1"
 			print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()

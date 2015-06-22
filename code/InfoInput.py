@@ -57,46 +57,47 @@ def InfoInput():
 					db.rollback()
 				db.close()
 
-
-			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
-			cursor = db.cursor()
-			sql = "INSERT INTO Person VALUES ('%s','%s','%s','%s','%s','%s')" % (SSN,age,gender,firstName,lastName,SharedVar.GId)
-			print sql
-			try:
-				cursor.execute(sql)
-				db.commit()
-				print "Add Person complete!"
-			except:
-				add = 0
-				print "Error!"
-				db.rollback()
-
-			db.close()
-
-			# Contacts
-			tel = []
-			while 1:
-				no = raw_input("Please enter telephone number: ")
-				tel.append(no)
-				more = input("More contact infomation(0. N0  1. Yes)? ")
-				if more != 1:
-					break
-
-			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
-			cursor = db.cursor()
-			for a in tel:
-				sql = "INSERT INTO Contact VALUES ('%s','%s')" % (SharedVar.GId,a)
+			if add == 1:
+				db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+				cursor = db.cursor()
+				sql = "INSERT INTO Person VALUES ('%s','%s','%s','%s','%s','%s')" % (SSN,age,gender,firstName,lastName,SharedVar.GId)
 				print sql
 				try:
 					cursor.execute(sql)
 					db.commit()
-					print "Add Contact complete!"
+					print "Add Person complete!"
 				except:
 					add = 0
 					print "Error!"
 					db.rollback()
-		
-			db.close()
+
+				db.close()
+
+			# Contacts
+			if add == 1:
+				tel = []
+				while 1:
+					no = raw_input("Please enter telephone number: ")
+					tel.append(no)
+					more = input("More contact infomation(0. N0  1. Yes)? ")
+					if more != 1:
+						break
+
+				db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+				cursor = db.cursor()
+				for a in tel:
+					sql = "INSERT INTO Contact VALUES ('%s','%s')" % (SharedVar.GId,a)
+					print sql
+					try:
+						cursor.execute(sql)
+						db.commit()
+						print "Add Contact complete!"
+					except:
+						add = 0
+						print "Error!"
+						db.rollback()
+				db.close()
+
 			if add == 1:
 				SharedVar.GId += 1
 			SharedVar.commit()
@@ -134,32 +135,34 @@ def InfoInput():
 				db.rollback()
 			db.close()
 
-			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
-			cursor = db.cursor()
-			sql = "INSERT INTO Company VALUES ('%s','%s','%s')" % (cName,cAddress,SharedVar.GId)
-			print sql
-			try:
-				cursor.execute(sql)
-				db.commit()
-				print "Add Company complete!"
-			except:
-				add = 0
-				print "Error!"
-				db.rollback()
-
-			for a in tel:
-				sql = "INSERT INTO Contact VALUES ('%s','%s')" % (SharedVar.GId,a)
+			if add == 1:
+				db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+				cursor = db.cursor()
+				sql = "INSERT INTO Company VALUES ('%s','%s','%s')" % (cName,cAddress,SharedVar.GId)
 				print sql
 				try:
 					cursor.execute(sql)
 					db.commit()
-					print "Add Contact complete!"
+					print "Add Company complete!"
 				except:
 					add = 0
 					print "Error!"
 					db.rollback()
 
-			db.close()
+			if add == 1:
+				for a in tel:
+					sql = "INSERT INTO Contact VALUES ('%s','%s')" % (SharedVar.GId,a)
+					print sql
+					try:
+						cursor.execute(sql)
+						db.commit()
+						print "Add Contact complete!"
+					except:
+						add = 0
+						print "Error!"
+						db.rollback()
+				db.close()
+			
 			if add == 1:	
 				SharedVar.GId += 1
 
