@@ -1,6 +1,7 @@
 #coding=utf-8
 import MySQLdb
 import SharedVar
+import getpass
 
 def AdminOp():
 	"""
@@ -39,13 +40,71 @@ def Employee():
 		if op == 0:
 			return
 		elif op == 1:
+			#UserId = raw_input("Please input userId:")
 			SharedVar.UserId += 1
+			print "Please set password: "
+			password = getpass.getpass()
+
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "INSERT INTO Employee VALUES ('%s','%s')" % (SharedVar.UserId,password)
+			print sql
+			try:
+				cursor.execute(sql)
+				db.commit()
+			except:
+				db.rollback()
+			
+			db.close()		
 			return 
 		elif op == 2:
 			Uid = raw_input("Please enter the userId: ")
+			print "Please set your new password: "
+			password = getpass.getpass()
+
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "UPDATE Employee SET password = '%s' where UserId = '%s'" % (password,Uid)
+			print sql
+
+			try:
+				cursor.execute(sql)
+				db.commit()
+				print "Reset password sucessfully!"
+			except:
+				print "Reset fail!"
+				db.rollback()
+
+			db.close()
 			return
 		elif op == 3:
 			Uid = raw_input("Please enter the userId: ")
+
+			#Query first
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "SELECT * FROM Employee where UserId = '%s'" % (Uid)
+			print sql
+			cursor.execute(sql)
+			data = cursor.fetchone()
+			if data == None:
+				print "There is no userId = " + Uid
+				db.close()
+				return
+			else:
+				#Delete
+				sql = "DELETE FROM Employee where UserId = '%s'" % (Uid)
+				print sql
+				try:
+					cursor.execute(sql)
+					db.commit()
+					print "Delete UserId = '%s' Completed!" % (Uid)
+				except:
+					print "Delete fail!"
+					db.rollback()
+
+			db.close()
+			
 			return
 		else:
 			print "Wrong command!"
