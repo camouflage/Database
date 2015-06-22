@@ -23,7 +23,6 @@ def init():
     GId = data[2]
     ResId = data[3]
 
-<<<<<<< HEAD
 def commit():
     """
         commit global variable
@@ -44,6 +43,3 @@ def commit():
         db.rollback()
 
     db.close()
-=======
-    db.close();
->>>>>>> origin/master
