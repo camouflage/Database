@@ -54,6 +54,7 @@ RoomId CHAR(5)
 
 CREATE TABLE Room
 (RoomId CHAR(5) NOT NULL,
+available BOOLEAN,
 price INTEGER,
 BigFlag BOOLEAN,
 DoubleFlag BOOLEAN,
