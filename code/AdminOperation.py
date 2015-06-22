@@ -55,7 +55,9 @@ def Employee():
 			except:
 				db.rollback()
 			
-			db.close()		
+			db.close()
+
+			SharedVar.commit()
 			return 
 		elif op == 2:
 			Uid = raw_input("Please enter the userId: ")
@@ -147,7 +149,9 @@ def Room():
 			
 			db.close()	
 
+			SharedVar.commit()
 			return
+
 		elif op == 2:
 			price = input("Please input the price: ")
 			SharedVar.RoomId += 1
@@ -167,6 +171,8 @@ def Room():
 				print "Add Fail!"
 			
 			db.close()
+
+			SharedVar.commit()
 			return
 
 		elif op == 3:
@@ -188,6 +194,8 @@ def Room():
 				print "Add Fail!"
 			
 			db.close()
+			
+			SharedVar.commit()
 			return
 
 		elif op == 4:

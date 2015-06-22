@@ -87,7 +87,9 @@ def InfoInput():
 				except:
 					db.rollback()
 		
-			db.close() 
+			db.close()
+
+			SharedVar.commit()
 			return
 
 		elif guestType == 2:
@@ -127,10 +129,9 @@ def InfoInput():
 				except:
 					db.rollback()
 
-			
 			db.close()
 
-
+			SharedVar.commit()
 			return
 
 		else:
