@@ -4,3 +4,5 @@ CREATE TABLE Global (
     GId INTEGER,
     ResId INTEGER
 );
+
+#INSERT INTO Global values(0, 0, 0, 0);
