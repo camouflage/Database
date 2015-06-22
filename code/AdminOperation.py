@@ -128,23 +128,123 @@ def Room():
 			return
 
 		elif op == 1:
+			price = input("Please input the price: ")
 			SharedVar.RoomId += 1
-			return 
+			BigFlag = 1
+			DoubleFlag = 0
+			SingleFlag = 0
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "INSERT INTO Room VALUES ('%s','%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
+			print sql
+			try:
+				cursor.execute(sql)
+				db.commit()
+				print "Add bigroom successfully!"
+			except:
+				db.rollback()
+				print "Add Fail!"
+			
+			db.close()	
 
+			return
 		elif op == 2:
+			price = input("Please input the price: ")
 			SharedVar.RoomId += 1
+			BigFlag = 0
+			DoubleFlag = 0
+			SingleFlag = 1
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "INSERT INTO Room VALUES ('%s','%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
+			print sql
+			try:
+				cursor.execute(sql)
+				db.commit()
+				print "Add singleroom successfully!"
+			except:
+				db.rollback()
+				print "Add Fail!"
+			
+			db.close()
 			return
 
 		elif op == 3:
+			price = input("Please input the price: ")
 			SharedVar.RoomId += 1
+			BigFlag = 0
+			DoubleFlag = 1
+			SingleFlag = 0
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "INSERT INTO Room VALUES ('%s','%d','%d','%d','%d')" % (SharedVar.RoomId,price,BigFlag,DoubleFlag,SingleFlag)
+			print sql
+			try:
+				cursor.execute(sql)
+				db.commit()
+				print "Add doubleroom successfully!"
+			except:
+				db.rollback()
+				print "Add Fail!"
+			
+			db.close()
 			return
 
 		elif op == 4:
 			Rid = raw_input("Please enter the RoomId: ")
+			#Query first
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "SELECT * FROM Room where RoomId = '%s'" % (Rid)
+			print sql
+			cursor.execute(sql)
+			data = cursor.fetchone()
+			if data == None:
+				print "There is no RoomId = " + Rid
+				db.close()
+				return
+			else:
+				#update
+				price = input("Please enter the new price: ")
+				sql = "UPDATE Room SET price = '%d' WHERE RoomId = '%s'" % (price,Rid)
+				print sql
+				try:
+					cursor.execute(sql)
+					db.commit()
+					print "Change price successfully!"
+				except:
+					db.rollback()
+					print "Change price fail!"
+
+			db.close();
 			return
 
 		elif op == 5:
 			Rid = raw_input("Please enter the RoomId: ")
+			#Query first
+			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+			cursor = db.cursor()
+			sql = "SELECT * FROM Room where RoomId = '%s'" % (Rid)
+			print sql
+			cursor.execute(sql)
+			data = cursor.fetchone()
+			if data == None:
+				print "There is no RoomId = " + Rid
+				db.close()
+				return
+			else:
+				#delete
+				sql = "DELETE FROM Room where RoomId = '%s'" % (Rid)
+				print sql
+				try:
+					cursor.execute(sql)
+					db.commit()
+					print "Delete RoomId = '%s' Completed!" % (Rid)
+				except:
+					print "Delete fail!"
+					db.rollback()
+
+			db.close()
 			return
 
 		else:
