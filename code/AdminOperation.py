@@ -41,7 +41,6 @@ def Employee():
 			return
 		elif op == 1:
 			#UserId = raw_input("Please input userId:")
-			SharedVar.UserId += 1
 			print "Please set password: "
 			password = getpass.getpass()
 
@@ -52,6 +51,8 @@ def Employee():
 			try:
 				cursor.execute(sql)
 				db.commit()
+				print "Add User %d successfully!" % (SharedVar.UserId)
+				SharedVar.UserId += 1
 			except:
 				db.rollback()
 			
@@ -131,7 +132,6 @@ def Room():
 
 		elif op == 1:
 			price = input("Please input the price: ")
-			SharedVar.RoomId += 1
 			BigFlag = 1
 			DoubleFlag = 0
 			SingleFlag = 0
@@ -142,6 +142,7 @@ def Room():
 			try:
 				cursor.execute(sql)
 				db.commit()
+				SharedVar.RoomId += 1
 				print "Add bigroom successfully!"
 			except:
 				db.rollback()
@@ -154,7 +155,6 @@ def Room():
 
 		elif op == 2:
 			price = input("Please input the price: ")
-			SharedVar.RoomId += 1
 			BigFlag = 0
 			DoubleFlag = 0
 			SingleFlag = 1
@@ -165,6 +165,7 @@ def Room():
 			try:
 				cursor.execute(sql)
 				db.commit()
+				SharedVar.RoomId += 1
 				print "Add singleroom successfully!"
 			except:
 				db.rollback()
@@ -177,7 +178,6 @@ def Room():
 
 		elif op == 3:
 			price = input("Please input the price: ")
-			SharedVar.RoomId += 1
 			BigFlag = 0
 			DoubleFlag = 1
 			SingleFlag = 0
@@ -188,6 +188,7 @@ def Room():
 			try:
 				cursor.execute(sql)
 				db.commit()
+				SharedVar.RoomId += 1
 				print "Add doubleroom successfully!"
 			except:
 				db.rollback()

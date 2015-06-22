@@ -27,6 +27,7 @@ def main():
 		EmpOp()
 
 	SharedVar.commit()
+	print SharedVar.UserId, SharedVar.RoomId, SharedVar.GId, SharedVar.ResId
 	
 if __name__ == "__main__":
 	main()

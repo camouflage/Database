@@ -90,6 +90,13 @@ startDate DATE,
 endDate DATE
 );
 
+#CREATE TABLE Global (
+#	UserId CHAR(5),
+#    RoomId CHAR(5),
+#    GId CHAR(5),
+#    ResId CHAR(5)
+#);
+
 CREATE TABLE Global (
 	UserId INTEGER,
     RoomId INTEGER,
@@ -189,11 +196,11 @@ ADD FOREIGN KEY(ResId) REFERENCES Reserve(ResId)
 ON DELETE CASCADE ON UPDATE CASCADE;
 
 
-INSERT INTO Global values(0, 0, 0, 0);
+INSERT INTO Global values(00000, 000015, 00000, 00000);
 
 INSERT INTO Administrator
 VALUES 
-('00000', '1');
+('a', '1');
 
 INSERT INTO Room
 VALUES
