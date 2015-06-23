@@ -28,7 +28,7 @@ def QueryEmptyRoom():
 			print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
-			if data[0] != None:
+			if data != None:
 				roomId = data[0]
 				#print data
 				print "Available room No: " + roomId
@@ -44,7 +44,7 @@ def QueryEmptyRoom():
 			print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
-			if data[0] != None:
+			if data != None:
 				roomId = data[0]
 				#print data
 				print "Available room No: " + roomId
@@ -59,7 +59,7 @@ def QueryEmptyRoom():
 			print sql
 			cursor.execute(sql)
 			data = cursor.fetchone()
-			if data[0] != None:
+			if data != None:
 				roomId = data[0]
 				#print data
 				print "Available room No: " + roomId
