@@ -30,7 +30,7 @@ def CheckOut():
 	db.close()
 
 	#Delete
-	op = input("Are you sure to check out? \n0.No  1.Yes")
+	op = input("Are you sure to check out? \n0.No  1.Yes ")
 	if op == 0:
 		return
 	elif op == 1:
@@ -48,7 +48,7 @@ def CheckOut():
 		print "Bill: "
 		print total
 
-		sql = "UPDATE Reserve SET available = 0 WHERE RoomId = '%s'" % (RoomId)
+		sql = "UPDATE Room SET available = 0 WHERE RoomId = '%s'" % (RoomId)
 		cursor.execute(sql)
 		db.commit()
 

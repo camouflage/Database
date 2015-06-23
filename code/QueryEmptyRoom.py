@@ -31,7 +31,7 @@ def QueryEmptyRoom():
 			if data[0] != None:
 				roomId = data[0]
 				#print data
-				print "Available room: " + roomId
+				print "Available room No: " + roomId
 			else:
 				print "No available room!"
 			db.close()
@@ -47,7 +47,7 @@ def QueryEmptyRoom():
 			if data[0] != None:
 				roomId = data[0]
 				#print data
-				print "Available room: " + roomId
+				print "Available room No: " + roomId
 			else:
 				print "No available room!"
 			db.close()
@@ -62,7 +62,7 @@ def QueryEmptyRoom():
 			if data[0] != None:
 				roomId = data[0]
 				#print data
-				print "Available room: " + roomId
+				print "Available room No: " + roomId
 			db.close()
 		else:
 			print "Wrong command "
