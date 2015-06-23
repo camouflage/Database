@@ -98,8 +98,8 @@ def InfoInput():
 						db.rollback()
 				db.close()
 
-			if add == 1:
-				SharedVar.GId += 1
+			#if add == 1:
+			SharedVar.GId += 1
 			SharedVar.commit()
 			return
 
@@ -163,8 +163,8 @@ def InfoInput():
 						db.rollback()
 				db.close()
 			
-			if add == 1:	
-				SharedVar.GId += 1
+			#if add == 1:	
+			SharedVar.GId += 1
 
 			SharedVar.commit()
 			return
