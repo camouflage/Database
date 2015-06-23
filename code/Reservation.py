@@ -25,7 +25,17 @@ def Reserve():
 
 	# NEED TO CHECK ROOM AVAILABILITY.
 
+	#Query first
+	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+	cursor = db.cursor()
+	sql = "SELECT * FROM Room WHERE RoomId = '%s' and available = 1" % RoomId
+	cursor.execute(sql)
+	data = cursor.fetchone()
+	if data == None:
+		print "This room is not available!"
+		return
 
+	db.close()
 
 
 	# SQL operation
