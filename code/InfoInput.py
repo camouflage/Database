@@ -41,6 +41,15 @@ def InfoInput():
 					add = 0
 					print "Error!"
 					db.rollback()
+
+				sql = "INSERT INTO VIP VALUES ('%s','%s')" % (Vid,status)
+				try:
+					cursor.execute(sql)
+					db.commit()
+				except:
+					add = 0
+					print "Error!"
+					db.rollback()
 				db.close()
 			else:
 				db = MySQLdb.connect("127.0.0.1", "root", "", "test")
