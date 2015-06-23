@@ -43,6 +43,7 @@ def InfoInput():
 					db.rollback()
 
 				sql = "INSERT INTO VIP VALUES ('%s','%s')" % (Vid,status)
+				print sql
 				try:
 					cursor.execute(sql)
 					db.commit()
@@ -127,12 +128,12 @@ def InfoInput():
 				if more != 1:
 					break
 
-			Vid = raw_input("Please enter Vid: ")
-			status = raw_input("Please enter VIP Status: ")
+			#Vid = raw_input("Please enter Vid: ")
+			#status = raw_input("Please enter VIP Status: ")
 
 			db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 			cursor = db.cursor()
-			sql = "INSERT INTO Guest VALUES ('%s','VIP','%s')" % (SharedVar.GId,Vid)
+			sql = "INSERT INTO Guest VALUES ('%s','Ordinary',NULL)" % (SharedVar.GId)
 			print sql
 			try:
 				cursor.execute(sql)
