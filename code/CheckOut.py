@@ -48,7 +48,8 @@ def CheckOut():
 		print "Bill: "
 		print total
 
-		sql = "UPDATE Room SET available = 0 WHERE RoomId = '%s'" % (RoomId)
+		sql = "UPDATE Room SET available = 1 WHERE RoomId = '%s'" % (RoomId)
+		print sql
 		cursor.execute(sql)
 		db.commit()
 

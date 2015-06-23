@@ -21,6 +21,7 @@ def Reserve():
 	startDate = datetime.datetime.strptime(startDate_string, "%Y-%m-%d")
 	endDate = datetime.datetime.strptime(endDate_string, "%Y-%m-%d")
 
+#<<<<<<< Updated upstream
 
 	# NEED TO CHECK ROOM AVAILABILITY.
 
@@ -47,6 +48,27 @@ def Reserve():
 		try:
 			cursor.execute(sql)
 			db.commit()
+# =======
+# 		#SQL operation
+# 		db = MySQLdb.connect("127.0.0.1", "root", "", "test")
+# 		cursor = db.cursor()
+# 		sql = "INSERT INTO Reserve VALUES ('%s','%s','%s','%s','%s','%s')" % (EmpId,GId,RoomId,SharedVar.ResId,startDate,endDate)
+# 		print sql
+# 		try:
+# 			cursor.execute(sql)
+# 			db.commit()
+# 			print "Insert Reserve sucessfully!"
+# 		except:
+# 			db.rollback();
+# 			print "Insert fail!"
+
+# 		sql = "UPDATE Room SET available = 0 WHERE RoomId = '%s'" % (RoomId)
+# 		print sql
+# 		try:
+# 			cursor.execute(sql)
+# 			db.commit()
+# 			print "update!"
+# >>>>>>> Stashed changes
 		except:
 			db.rollback();
 			success = 0
