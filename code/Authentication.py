@@ -37,7 +37,7 @@ def Authentication_Ad():
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()
 	sql = "select UserId from Administrator where UserId = '%s' and password = '%s'" %(UserId,password)
-	print sql
+	#print sql
 	cursor.execute(sql)
 	data = cursor.fetchone()
 	#print data
