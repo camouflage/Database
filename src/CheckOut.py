@@ -10,7 +10,7 @@ def CheckOut():
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()
 	sql = "SELECT * FROM Reserve WHERE ResId = '%s'" % ResId_input
-	print sql
+	#print sql
 #try:
 	cursor.execute(sql)
 	data = cursor.fetchone()
@@ -39,7 +39,7 @@ def CheckOut():
 		db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 		cursor = db.cursor()
 		sql = "SELECT Room.price FROM Reserve,Room WHERE Reserve.RoomId = Room.RoomId AND Reserve.ResId = '%s'" % ResId_input
-		print sql
+		#print sql
 		cursor.execute(sql)
 		data = cursor.fetchone()
 
@@ -49,7 +49,7 @@ def CheckOut():
 		print total
 
 		sql = "UPDATE Room SET available = 1 WHERE RoomId = '%s'" % (RoomId)
-		print sql
+		#print sql
 		cursor.execute(sql)
 		db.commit()
 
@@ -66,7 +66,7 @@ def Del(ResId):
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()
 	sql = "DELETE FROM Reserve WHERE ResId = '%s'" % ResId
-	print sql
+	#print sql
 	try:
 		cursor.execute(sql)
 		db.commit()

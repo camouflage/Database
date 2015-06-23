@@ -42,7 +42,7 @@ def Reserve():
 	db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 	cursor = db.cursor()
 	sql = "INSERT INTO Reserve VALUES ('%s','%s','%s','%s','%s','%s')" % (EmpId,GId,RoomId,SharedVar.ResId,startDate,endDate)
-	print sql
+	#print sql
 	try:
 		cursor.execute(sql)
 		db.commit()
@@ -63,7 +63,7 @@ def Reserve():
 # 		db = MySQLdb.connect("127.0.0.1", "root", "", "test")
 # 		cursor = db.cursor()
 # 		sql = "INSERT INTO Reserve VALUES ('%s','%s','%s','%s','%s','%s')" % (EmpId,GId,RoomId,SharedVar.ResId,startDate,endDate)
-# 		print sql
+# 		#print sql
 # 		try:
 # 			cursor.execute(sql)
 # 			db.commit()
@@ -73,7 +73,7 @@ def Reserve():
 # 			print "Insert fail!"
 
 # 		sql = "UPDATE Room SET available = 0 WHERE RoomId = '%s'" % (RoomId)
-# 		print sql
+# 		#print sql
 # 		try:
 # 			cursor.execute(sql)
 # 			db.commit()
