@@ -41,12 +41,12 @@ def InfoInput():
 					add = 0
 					print "Error!"
 					db.rollback()
-
 				sql = "INSERT INTO VIP VALUES ('%s','%s')" % (Vid,status)
 				print sql
 				try:
 					cursor.execute(sql)
 					db.commit()
+					print sql
 				except:
 					add = 0
 					print "Error!"
