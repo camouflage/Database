@@ -11,23 +11,29 @@ Demo:
 Hand over:
 Report
 Program
+
 Scoring
+
 Demo
 Insert (10%)
 Delete (10%)
 Update (10%)
 Select (10%)
+
 Report
 System description (20%)
 including how to execute (as detailed as possible)
 ER Diagram (20%)
 Schema (20%)
+
 including normal form description (proof)
 All relations should be in 3NF or stronger version (i.e., BCNF, 4TH NF,бн)
+
 Requirements for ER Diagram 
 Including all kinds of object (10%)
 Including specialization (5%)
 Including union (5%)
+
 Requirements for Schema
 Including all kinds of approach for relationship
 Foreign key approach
