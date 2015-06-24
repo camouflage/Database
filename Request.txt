@@ -1,0 +1,48 @@
+Goal:
+To build a system for a real-world application which utilize a database
+Form a team
+No more than 3 persons
+Send your topic and team member list to TA
+zepoo777@gmail.com
+Due: 2015/05/31 23:59:59
+Demo:
+15 minutes
+6/23 Tue
+Hand over:
+Report
+Program
+
+Scoring
+
+Demo
+Insert (10%)
+Delete (10%)
+Update (10%)
+Select (10%)
+
+Report
+System description (20%)
+including how to execute (as detailed as possible)
+ER Diagram (20%)
+Schema (20%)
+
+including normal form description (proof)
+All relations should be in 3NF or stronger version (i.e., BCNF, 4TH NF,бн)
+
+Requirements for ER Diagram 
+Including all kinds of object (10%)
+Including specialization (5%)
+Including union (5%)
+
+Requirements for Schema
+Including all kinds of approach for relationship
+Foreign key approach
+Relationship Relation approach
+Including all kinds of approach specialization
+Multiple relations-Superclass and subclasses
+Multiple relations-Subclass relations only
+Single relation with one type (discriminating or image) attribute t. 
+Single relation with multiple type attributes.
+Including all kinds of approach union
+Different keys -->Surrogate key
+Same keys --> inherit the key
